@@ -12,15 +12,13 @@ import UIKit
 class MoviesViewController : UIViewController {
   
   var categoriesTopCollection:UICollectionView?
-  let categoriesTopCollectionCell = "categoriesTopCollectionCell"
-  
   var moviesTopCollection:UICollectionView?
-  let moviesTopCollectionCell = "categoriesTopCollectionCell"
   
   var categoriasTop: [CategoriesTop] = []
   var movies: [Movies] = []
+  var categoryMovieSelected: String = "movie/popular"
+  var categoryMovieType: String = "movie"
 
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "TV Shows"
@@ -39,14 +37,16 @@ class MoviesViewController : UIViewController {
         
         
         let categoriesLayout = UICollectionViewFlowLayout.CategoriesCollectionLayout()
+        
         self.categoriesTopCollection = UICollectionView(frame: self.view.frame, collectionViewLayout: categoriesLayout)
-        self.categoriesTopCollection?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: self.categoriesTopCollectionCell)
+        self.categoriesTopCollection?.register(MoviesTopViewControllerCell.self, forCellWithReuseIdentifier: MoviesTopViewControllerCell.identifier)
+        
         self.categoriesTopCollection?.backgroundColor = UIColor.backgroundAppColor
         self.categoriesTopCollection?.dataSource = self
         self.categoriesTopCollection?.delegate = self
         
         self.view.addSubview(self.categoriesTopCollection ?? UICollectionView())
-        self.loadMovies(categories: "movie/popular")
+        self.loadMovies()
       }
     } fail: {
       print("fail")
@@ -55,11 +55,12 @@ class MoviesViewController : UIViewController {
     
 }
 
-  func loadMovies(categories:String){
-  let parametros: [String: Any] = ["page": 1,"categories": categories]
+  func loadMovies(){
+  let parametros: [String: Any] = ["page": 1,"categories": categoryMovieSelected]
   
   ApiManager.shared.getMoviesByCategories(param: parametros) { (response) in
     DispatchQueue.main.async {
+      self.categoriesTopCollection?.reloadData()
       self.movies = [response]
 
       let moviesLayout = UICollectionViewFlowLayout.MoviesCollectionLayout()
@@ -132,18 +133,25 @@ extension MoviesViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     if collectionView == self.categoriesTopCollection {
-      let Cell = collectionView.dequeueReusableCell(withReuseIdentifier: categoriesTopCollectionCell, for: indexPath)
+            
       
-      let titleLabel = UILabel.CategoriesLabel(text: categoriasTop[0].results[indexPath.row].name)
-      Cell.contentView.addSubview(titleLabel)
-      Cell.backgroundColor = UIColor.categoriesMainBackground
-      UIView.CategoriesLabelConstraint(titleLabel: titleLabel, Cell: Cell)
-      return Cell
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesTopViewControllerCell.identifier, for: indexPath) as! MoviesTopViewControllerCell
+      let categorias = categoriasTop[0].results[indexPath.row]
+      cell.setup(with: categorias)
+      
+      if categoriasTop[0].results[indexPath.row].id == categoryMovieSelected{
+        print("id: \(categoriasTop[0].results[indexPath.row].id)")
+        cell.contentView.backgroundColor = UIColor.categoriesMainBackgroundSelected
+      }else{
+        cell.contentView.backgroundColor = UIColor.categoriesMainBackground
+      }
+      
+      return cell
     }
    
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesViewControllerCell.identifier, for: indexPath) as! MoviesViewControllerCell
-    let profile = movies[0].results[indexPath.row]
-    cell.setup(with: profile)    
+    let movie = movies[0].results[indexPath.row]
+    cell.setup(with: movie)    
     return cell
   }
 }
@@ -151,12 +159,17 @@ extension MoviesViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     if collectionView == self.categoriesTopCollection {
-      
-      self.loadMovies(categories: categoriasTop[0].results[indexPath.row].id)
+      categoryMovieSelected = categoriasTop[0].results[indexPath.row].id
+      categoryMovieType = categoriasTop[0].results[indexPath.row].type
+
+      self.loadMovies()
       
     }else{
       print("User tapped on item \(indexPath.row)")
       let mvc = MoviesDetailViewController()
+      mvc.movie_id = movies[0].results[indexPath.row].id
+      mvc.type = categoryMovieType
+
       self.navigationController?.pushViewController(mvc, animated: true)
     }
     

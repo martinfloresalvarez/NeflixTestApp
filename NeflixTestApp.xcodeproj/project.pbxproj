@@ -19,6 +19,12 @@
 		D1979EF428ADB30F008B6AC8 /* UiElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1979EF328ADB30F008B6AC8 /* UiElements.swift */; };
 		D1979EF728ADE217008B6AC8 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = D1979EF628ADE217008B6AC8 /* NukeUI */; };
 		D1979EF928ADE631008B6AC8 /* MoviesViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1979EF828ADE631008B6AC8 /* MoviesViewControllerCell.swift */; };
+		D1979EFB28AEAAE7008B6AC8 /* MoviesTopViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1979EFA28AEAAE7008B6AC8 /* MoviesTopViewControllerCell.swift */; };
+		D1979EFE28AEC666008B6AC8 /* mainScreenLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D1979EFD28AEC666008B6AC8 /* mainScreenLogo.png */; };
+		D1979F0028AECE5D008B6AC8 /* MovieProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1979EFF28AECE5D008B6AC8 /* MovieProviders.swift */; };
+		D1979F0228AED06A008B6AC8 /* MoviesProvidersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1979F0128AED06A008B6AC8 /* MoviesProvidersViewController.swift */; };
+		D1979F0428AEDC3B008B6AC8 /* MoviesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1979F0328AEDC3B008B6AC8 /* MoviesDetail.swift */; };
+		D1979F0628AEE55E008B6AC8 /* MoviesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1979F0528AEE55E008B6AC8 /* MoviesDetailView.swift */; };
 		D1EB01C728ABEC6A007C6099 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EB01C628ABEC6A007C6099 /* AppDelegate.swift */; };
 		D1EB01C928ABEC6A007C6099 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EB01C828ABEC6A007C6099 /* SceneDelegate.swift */; };
 		D1EB01CB28ABEC6A007C6099 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EB01CA28ABEC6A007C6099 /* LoginViewController.swift */; };
@@ -43,6 +49,12 @@
 		D1979EF028AD6625008B6AC8 /* CategoriesTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTop.swift; sourceTree = "<group>"; };
 		D1979EF328ADB30F008B6AC8 /* UiElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiElements.swift; sourceTree = "<group>"; };
 		D1979EF828ADE631008B6AC8 /* MoviesViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewControllerCell.swift; sourceTree = "<group>"; };
+		D1979EFA28AEAAE7008B6AC8 /* MoviesTopViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTopViewControllerCell.swift; sourceTree = "<group>"; };
+		D1979EFD28AEC666008B6AC8 /* mainScreenLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainScreenLogo.png; sourceTree = "<group>"; };
+		D1979EFF28AECE5D008B6AC8 /* MovieProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProviders.swift; sourceTree = "<group>"; };
+		D1979F0128AED06A008B6AC8 /* MoviesProvidersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesProvidersViewController.swift; sourceTree = "<group>"; };
+		D1979F0328AEDC3B008B6AC8 /* MoviesDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDetail.swift; sourceTree = "<group>"; };
+		D1979F0528AEE55E008B6AC8 /* MoviesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDetailView.swift; sourceTree = "<group>"; };
 		D1EB01C328ABEC6A007C6099 /* NeflixTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeflixTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1EB01C628ABEC6A007C6099 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1EB01C828ABEC6A007C6099 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +91,14 @@
 			path = UiCustom;
 			sourceTree = "<group>";
 		};
+		D1979EFC28AEC652008B6AC8 /* ImagesTemp */ = {
+			isa = PBXGroup;
+			children = (
+				D1979EFD28AEC666008B6AC8 /* mainScreenLogo.png */,
+			);
+			path = ImagesTemp;
+			sourceTree = "<group>";
+		};
 		D1EB01BA28ABEC6A007C6099 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +118,7 @@
 		D1EB01C528ABEC6A007C6099 /* NeflixTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				D1979EFC28AEC652008B6AC8 /* ImagesTemp */,
 				D1979EF228ADB2DC008B6AC8 /* UiCustom */,
 				D1EB01DD28AC0003007C6099 /* Util */,
 				D1EB01DC28ABFFEB007C6099 /* Model */,
@@ -127,6 +148,9 @@
 			children = (
 				D1EB01EC28AC0CCB007C6099 /* MoviesViewController.swift */,
 				D1979EF828ADE631008B6AC8 /* MoviesViewControllerCell.swift */,
+				D1979F0528AEE55E008B6AC8 /* MoviesDetailView.swift */,
+				D1979F0128AED06A008B6AC8 /* MoviesProvidersViewController.swift */,
+				D1979EFA28AEAAE7008B6AC8 /* MoviesTopViewControllerCell.swift */,
 				D15FC18928ACA06B00C8F2D5 /* MoviesDetailViewController.swift */,
 				D1EB01CA28ABEC6A007C6099 /* LoginViewController.swift */,
 				D15FC18B28ACA17A00C8F2D5 /* RootViewController.swift */,
@@ -139,8 +163,10 @@
 			isa = PBXGroup;
 			children = (
 				D1EB01E828AC0594007C6099 /* Movies.swift */,
+				D1979F0328AEDC3B008B6AC8 /* MoviesDetail.swift */,
 				D15FC18128AC20AB00C8F2D5 /* Token.swift */,
 				D15FC18728AC952D00C8F2D5 /* Session.swift */,
+				D1979EFF28AECE5D008B6AC8 /* MovieProviders.swift */,
 				D15FC18328AC5B0400C8F2D5 /* Login.swift */,
 				D1979EF028AD6625008B6AC8 /* CategoriesTop.swift */,
 			);
@@ -222,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1979EFE28AEC666008B6AC8 /* mainScreenLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,11 +262,13 @@
 				D15FC18828AC952D00C8F2D5 /* Session.swift in Sources */,
 				D1979EEF28AD4A34008B6AC8 /* UserViewController.swift in Sources */,
 				D1979EF428ADB30F008B6AC8 /* UiElements.swift in Sources */,
+				D1979EFB28AEAAE7008B6AC8 /* MoviesTopViewControllerCell.swift in Sources */,
 				D1EB01E928AC0594007C6099 /* Movies.swift in Sources */,
 				D1EB01E728AC056B007C6099 /* ApiManager.swift in Sources */,
 				D15FC18E28ACA6CE00C8F2D5 /* Colors.swift in Sources */,
 				D1EB01CB28ABEC6A007C6099 /* LoginViewController.swift in Sources */,
 				D1EB01E128AC005E007C6099 /* Fonts.swift in Sources */,
+				D1979F0428AEDC3B008B6AC8 /* MoviesDetail.swift in Sources */,
 				D1979EF128AD6625008B6AC8 /* CategoriesTop.swift in Sources */,
 				D1979EF928ADE631008B6AC8 /* MoviesViewControllerCell.swift in Sources */,
 				D15FC18628AC936600C8F2D5 /* UserDefaults.swift in Sources */,
@@ -248,10 +277,13 @@
 				D1EB01ED28AC0CCB007C6099 /* MoviesViewController.swift in Sources */,
 				D1EB01C928ABEC6A007C6099 /* SceneDelegate.swift in Sources */,
 				D15FC18228AC20AB00C8F2D5 /* Token.swift in Sources */,
+				D1979F0628AEE55E008B6AC8 /* MoviesDetailView.swift in Sources */,
 				D15FC18428AC5B0400C8F2D5 /* Login.swift in Sources */,
 				D15FC18A28ACA06B00C8F2D5 /* MoviesDetailViewController.swift in Sources */,
 				D1EB01E528AC052D007C6099 /* Util.swift in Sources */,
+				D1979F0028AECE5D008B6AC8 /* MovieProviders.swift in Sources */,
 				D1EB01DF28AC001A007C6099 /* Constants.swift in Sources */,
+				D1979F0228AED06A008B6AC8 /* MoviesProvidersViewController.swift in Sources */,
 				D1EB01E328AC00ED007C6099 /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

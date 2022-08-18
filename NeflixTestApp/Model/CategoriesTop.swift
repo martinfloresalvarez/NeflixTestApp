@@ -18,11 +18,13 @@ struct CategoriesTop: Codable {
 struct results: Codable {
   let name:String
   let id: String
-  
+  let type: String
+
   enum CodingKeys: String, CodingKey {
     case name = "name"
     case id = "id"
-    
+    case type = "type"
+
   }
 }
 

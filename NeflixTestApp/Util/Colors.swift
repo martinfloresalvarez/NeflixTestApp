@@ -14,8 +14,12 @@ extension UIColor {
   static let iconsGreyColor = hexStringToUIColor(hex: "#86888B")
   static let titleNavigationBar = hexStringToUIColor(hex: "#EFF0F0")
   static let categoriesMainBackground = hexStringToUIColor(hex: "#20242B")
+  static let categoriesMainBackgroundSelected = hexStringToUIColor(hex: "#4F4F52")
   static let textMainColorApp = hexStringToUIColor(hex: "#EFF0F0")
   static let moviesCollectionViewCell = hexStringToUIColor(hex: "#152024")
+
+  //login
+  static let loginButtonGrey = hexStringToUIColor(hex: "#D8D6D0")
 
 }
 

@@ -11,8 +11,14 @@ class LoginViewController: UIViewController {
       
   let loginContentView:UIView = {
     let view = UIView()
-    view.backgroundColor = .green
     return view
+  }()
+  
+  let logoImageView: UIImageView = {
+    let logo = UIImage(named: "mainScreenLogo")
+    let imageView = UIImageView(image: logo)
+    imageView.contentMode = .scaleAspectFill
+    return imageView
   }()
   
   let userTextField: UITextField = {
@@ -20,6 +26,7 @@ class LoginViewController: UIViewController {
     textField.autocapitalizationType = .none
     textField.autocorrectionType = .no
     textField.placeholder = "Nombre de usuario"
+    textField.layer.cornerRadius =  5
     return textField
   }()
   
@@ -29,12 +36,16 @@ class LoginViewController: UIViewController {
     textField.isSecureTextEntry = true
     textField.autocorrectionType = .no
     textField.placeholder = "Contraseña"
+    textField.layer.cornerRadius =  5
+
     return textField
   }()
   
   let loginButton: UIButton = {
     let button = UIButton(type: .system)
     button.setTitle("Entrar", for: .normal)
+    button.tintColor = UIColor.black
+    button.backgroundColor = UIColor.loginButtonGrey
     button.addTarget(
       self,
       action: #selector(loginButtonPressed),
@@ -72,7 +83,7 @@ class LoginViewController: UIViewController {
       return
     }
     statusLoginLabel.text = "Comprobando datos"
-    statusLoginLabel.textColor = .black
+    statusLoginLabel.textColor = .blue
     
     loginButton.addSubview(loginSpinner)
     loginSpinner.centerXAnchor.constraint(equalTo: loginButton.centerXAnchor).isActive = true
@@ -109,7 +120,7 @@ class LoginViewController: UIViewController {
           }else{
             DispatchQueue.main.async {
               self.statusLoginLabel.text = "Usuario o contraseña incorrectos"
-              self.statusLoginLabel.textColor = .red
+              self.statusLoginLabel.textColor = .orange
             }
           }
         
@@ -135,10 +146,9 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
   
-  
   func setupLoginContentView() {
     view.addSubview(loginContentView)
-    
+    view.addSubview(logoImageView)
     loginContentView.addSubview(userTextField)
     loginContentView.addSubview(passwordTextField)
     loginContentView.addSubview(loginButton)
@@ -150,12 +160,25 @@ extension LoginViewController {
     loginContentView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
     loginContentView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     loginContentView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-    
+    setupLogoImageView()
     setupuserTextField()
     setupPasswordTextField()
     setupLoginButton()
     setuoStatusLabel()
     
+  }
+  
+  func setupLogoImageView() {
+    logoImageView.translatesAutoresizingMaskIntoConstraints = false
+    
+    logoImageView.frame.size.width = 100
+    logoImageView.frame.size.height = 100
+    
+    logoImageView.bottomAnchor.constraint(equalTo: loginContentView.topAnchor, constant: 10).isActive = true
+    logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    
+    logoImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+    logoImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
   }
   
   func setupuserTextField() {
@@ -166,11 +189,11 @@ extension LoginViewController {
     userTextField.frame.size.width = 200
     userTextField.frame.size.height = 20
     
-    userTextField.topAnchor.constraint(equalTo: loginContentView.topAnchor, constant: 40).isActive = true
+    userTextField.topAnchor.constraint(equalTo: loginContentView.topAnchor, constant: 20).isActive = true
     userTextField.centerXAnchor.constraint(equalTo: loginContentView.centerXAnchor).isActive = true
     
     userTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
-    userTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+    userTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
   }
   
   func setupPasswordTextField() {
@@ -181,11 +204,11 @@ extension LoginViewController {
     passwordTextField.frame.size.width = 200
     passwordTextField.frame.size.height = 20
     
-    passwordTextField.topAnchor.constraint(equalTo: userTextField.bottomAnchor, constant: 40).isActive = true
+    passwordTextField.topAnchor.constraint(equalTo: userTextField.bottomAnchor, constant: 20).isActive = true
     passwordTextField.centerXAnchor.constraint(equalTo: loginContentView.centerXAnchor).isActive = true
     
     passwordTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
-    passwordTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+    passwordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
   }
   
   func setupLoginButton() {
@@ -193,14 +216,13 @@ extension LoginViewController {
     loginButton.isUserInteractionEnabled = true
     loginButton.backgroundColor = .white
     
-    loginButton.frame.size.width = 100
+    loginButton.frame.size.width = 200
     loginButton.frame.size.height = 30
     
-    loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 40).isActive = true
+    loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20).isActive = true
     loginButton.centerXAnchor.constraint(equalTo: loginContentView.centerXAnchor).isActive = true
-    
-    loginButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-    loginButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    loginButton.widthAnchor.constraint(equalToConstant: 300).isActive = true
+    loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
   }
   
   func setuoStatusLabel(){

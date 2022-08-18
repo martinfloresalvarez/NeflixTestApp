@@ -42,10 +42,10 @@ extension UICollectionViewFlowLayout {
   class func CategoriesCollectionLayout() -> UICollectionViewFlowLayout{
     let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     let width = UIScreen.main.bounds.width
-    layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-    layout.itemSize = CGSize(width: width/4, height: 40)
+    layout.itemSize = CGSize(width: (width/4)-8, height: 35)
     layout.minimumInteritemSpacing = 0
     layout.minimumLineSpacing = 0
+    layout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 0, right: 15)
     return layout
   }
   
@@ -58,20 +58,18 @@ extension UICollectionViewFlowLayout {
     layout.minimumLineSpacing = 10
     return layout
   }
+  class func ProvidersCollectionLayout() -> UICollectionViewFlowLayout{
+    let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    let width = UIScreen.main.bounds.width
+    layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 10, right: 5)
+    layout.itemSize = CGSize(width: (width/2)-10, height: 150)
+    layout.minimumInteritemSpacing = 0
+    layout.minimumLineSpacing = 10
+    return layout
+  }
   
 }
 
 extension UIView {
-  
-  class func CategoriesLabelConstraint(titleLabel:UILabel,Cell:UICollectionViewCell) {
-    let widthConstraint = NSLayoutConstraint(item: titleLabel, attribute: .width, relatedBy: .equal,
-                                             toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100)
-    let heightConstraint = NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal,
-                                              toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 40)
-    let xConstraint = NSLayoutConstraint(item: titleLabel, attribute: .centerX, relatedBy: .equal, toItem: Cell, attribute: .centerX, multiplier: 1, constant: 0)
-    let yConstraint = NSLayoutConstraint(item: titleLabel, attribute: .centerY, relatedBy: .equal, toItem: Cell, attribute: .centerY, multiplier: 1, constant: 0)
     
-    NSLayoutConstraint.activate([widthConstraint, heightConstraint, xConstraint, yConstraint])
-  }
-  
 }

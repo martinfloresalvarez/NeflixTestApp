@@ -33,12 +33,7 @@ struct MoviesDetail: Codable{
   let name: String?
   let video:Bool?
   let vote_average:Double
-  let vote_count:Int
-
- 
-
-  
-  
+  let vote_count:Int  
   
   enum CodingKeysMoviesDetail: String, CodingKey {
     case adult = "adult"
